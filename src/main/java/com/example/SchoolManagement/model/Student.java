@@ -20,7 +20,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
-    private String lastNamae;
+    private String lastName;
     private Integer age;
     private String teacher;
 
