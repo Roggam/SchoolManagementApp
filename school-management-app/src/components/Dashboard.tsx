@@ -54,7 +54,7 @@ export class Dashboard extends Component<{}, MyState> {
                 <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </CardText>
-                <Button>Manage Students</Button>
+                <Button>Manage Teachers</Button>
               </Card>
             </Col>
             <Col sm="4">
@@ -66,10 +66,20 @@ export class Dashboard extends Component<{}, MyState> {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </CardText>
-                <Button>Manage Students</Button>
+                <Button>Manage Employees</Button>
               </Card>
             </Col>
           </Row>
+        </Container>
+        <Container className="mt-4">
+            <Row>
+                <Col sm='12'>
+                     <Button block color="success">
+                         <span className="font-size-l">Create New Student</span>
+                     </Button>
+                </Col>
+            </Row>
+           
         </Container>
       </div>
     );
