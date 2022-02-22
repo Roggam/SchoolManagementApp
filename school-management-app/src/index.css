@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font-size-xxl{
+  font-size: 3em;
+}
+
+.font-size-xl{
+  font-size: 2em;
+}
+
+.font-size-l{
+
+font-size: 1.5em;
+}
+
+.font-size-m {
+  font-size: 1em;
+}
