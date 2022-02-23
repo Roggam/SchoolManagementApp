@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import {
   Button,
@@ -16,6 +17,21 @@ type MyProps = {
 
 export class CreateStudent extends Component<MyProps> {
   // state = { :  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const student = {
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      age: data.get("age"),
+      teacher: data.get("teacher"),
+    };
+
+    axios.post("http://localhost:8080/create", student);
+    this.props.toggle();
+  };
+
   render() {
     return (
       <div>
@@ -23,7 +39,8 @@ export class CreateStudent extends Component<MyProps> {
           <ModalHeader toggle={this.props.toggle}>
             Adding New Student
           </ModalHeader>
-          <Form>
+          <ModalBody>
+          <Form onSubmit={this.handleSubmit}>
             <Row>
               <Col>
                 <label>First Name </label>
@@ -58,7 +75,7 @@ export class CreateStudent extends Component<MyProps> {
             </Row>
             <Button color="primary">Create New Student</Button>
           </Form>
-          <ModalBody></ModalBody>
+          </ModalBody>
         </Modal>
       </div>
     );

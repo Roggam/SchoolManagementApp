@@ -19,13 +19,16 @@ import {
   IoWomanOutline,
 } from "react-icons/io5";
 import axios from "axios";
+import { CreateStudent } from "./CreateStudent";
 
 interface MyState {
-  students: [];
+  isOpen: boolean;
+   students: [];
 }
 
 export class Dashboard extends Component<{}, MyState> {
   state: MyState = {
+    isOpen : false,
     students: [],
   };
 
@@ -34,6 +37,10 @@ export class Dashboard extends Component<{}, MyState> {
       const students = res.data;
       this.setState({ students });
     });
+  }
+
+  toggle = ()=>{
+    this.setState(prevState => ({isOpen : !prevState.isOpen}))
   }
 
   render() {
@@ -87,10 +94,12 @@ export class Dashboard extends Component<{}, MyState> {
             </Col>
           </Row>
         </Container>
+
+        <CreateStudent isOpen ={this.state.isOpen} toggle ={this.toggle}></CreateStudent>
         <Container className="mt-4">
           <Row>
             <Col sm="12">
-              <Button block color="success">
+              <Button block color="success" onClick={this.toggle}>
                 <span className="font-size-l">Create New Student</span>
               </Button>
             </Col>
