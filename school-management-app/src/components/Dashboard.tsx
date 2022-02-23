@@ -108,30 +108,52 @@ function renderStudent(st) {
   return (
     <Row>
       <Col sm="12">
-        <Card body> 
-        <CardTitle>
-          <IoMan className="font-size-xl"/> 
-          {st.firstName + " " + st.lastName}
-        </CardTitle>
-        <CardBody>
-          <Row>
-            <Col sm = "4" className="text-center">
-            <span className="font-weight-bold">Class </span>
-            <span> Second Year</span>
-            </Col>
-            <Col sm = "4" className="text-center">
-              <span className="font-weight-bold">Age </span>
-              <span>{st.age}</span>
-            </Col>
-            <Col sm = "4" className="text-center">
-              <span className="font-weight-bold">Teacher </span>
-              <span>{st.teacher}</span>
-            </Col>
-          </Row>
-        </CardBody>
-
+        <Card body>
+          <CardTitle>
+            <IoMan className="font-size-xl" />
+            {st.firstName + " " + st.lastName}
+          </CardTitle>
+          <CardBody>
+            <Row>
+              <Col sm="4" className="text-center">
+                <span className="font-weight-bold">Class </span>
+                <span> Second Year</span>
+              </Col>
+              <Col sm="4" className="text-center">
+                <span className="font-weight-bold">Age </span>
+                <span>{st.age}</span>
+              </Col>
+              <Col sm="4" className="text-center">
+                <span className="font-weight-bold">Teacher </span>
+                <span>{st.teacher}</span>
+              </Col>
+            </Row>
+          </CardBody>
+          <CardFooter>
+            <Row>
+              <Col sm-6>
+                <Button block outline color="primary">
+                  Edit
+                </Button>
+              </Col>
+              <Col sm-6>
+                <Button
+                  block
+                  outline
+                  color="danger"
+                  onClick={() => deleteStudent(st.id)}
+                >
+                  Delete
+                </Button>
+              </Col>
+            </Row>
+          </CardFooter>
         </Card>
       </Col>
     </Row>
   );
 }
+function deleteStudent(id: any): void {
+  axios.delete(`http://localhost:8080/delete/${id}`);
+}
+
