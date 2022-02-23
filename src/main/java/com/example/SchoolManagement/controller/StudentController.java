@@ -16,27 +16,26 @@ public class StudentController {
     @Autowired
    private StudentRepository studentRepository;
 
-    @PostMapping("/create")
-    private void createStudent(@RequestBody Student student){
-        studentRepository.save(student);
-
+    @PostMapping(value = "/create")
+    public ResponseEntity<Student> create(@RequestBody Student student) {
+        return new ResponseEntity<>(studentRepository.save(student), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     private void deleteStudent(@PathVariable Long id){
        studentRepository.deleteById(id);
     }
 
-    @GetMapping("/list")
+    @GetMapping(value = "/list")
     private List<Student> listStudent(){
         return studentRepository.findAll();
     }
 
 
-    @PutMapping("/update/{id}")
-    private ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
-        Student updatedStudent = studentRepository.save(student);
-        return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
-
-    }
+//    @PutMapping("/update/{id}")
+//    private ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+//        Student updatedStudent = studentRepository.save(student);
+//        return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
+//
+//    }
 }

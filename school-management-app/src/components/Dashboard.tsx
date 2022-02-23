@@ -17,11 +17,22 @@ import {
   IoSettings,
   IoWomanOutline,
 } from "react-icons/io5";
+import axios from "axios";
 
-interface MyState {}
+interface MyState {
+    students: []
+}
 
 export class Dashboard extends Component<{}, MyState> {
-  render() {
+  state: MyState = {
+      students: []
+  }
+  
+  componentDidMount (){
+      axios.get('https://localhost:8080/list')
+  }
+  
+    render() {
     return (
       <div>
         <Navbar color="dark" light mb-2>
