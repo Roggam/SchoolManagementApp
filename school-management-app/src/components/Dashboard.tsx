@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
   Button,
   Card,
+  CardBody,
   CardFooter,
   CardText,
   CardTitle,
@@ -112,6 +113,22 @@ function renderStudent(st) {
           <IoMan className="font-size-xl"/> 
           {st.firstName + " " + st.lastName}
         </CardTitle>
+        <CardBody>
+          <Row>
+            <Col sm = "4" className="text-center">
+            <span className="font-weight-bold">Class </span>
+            <span> Second Year</span>
+            </Col>
+            <Col sm = "4" className="text-center">
+              <span className="font-weight-bold">Age </span>
+              <span>{st.age}</span>
+            </Col>
+            <Col sm = "4" className="text-center">
+              <span className="font-weight-bold">Teacher </span>
+              <span>{st.teacher}</span>
+            </Col>
+          </Row>
+        </CardBody>
 
         </Card>
       </Col>
