@@ -118,22 +118,22 @@ function renderStudent(st) {
     <Row>
       <Col sm="12">
         <Card body>
-          <CardTitle>
+          <CardTitle className="fw-bold">
             <IoMan className="font-size-xl" />
             {st.firstName + " " + st.lastName}
           </CardTitle>
           <CardBody>
             <Row>
               <Col sm="4" className="text-center">
-                <span className="font-weight-bold">Class </span>
+                <span className="fw-bold">Class: </span>
                 <span> Second Year</span>
               </Col>
               <Col sm="4" className="text-center">
-                <span className="font-weight-bold">Age </span>
+                <span className="fw-bold">Age: </span>
                 <span>{st.age}</span>
               </Col>
               <Col sm="4" className="text-center">
-                <span className="font-weight-bold">Teacher </span>
+                <span className="fw-bold">Teacher: </span>
                 <span>{st.teacher}</span>
               </Col>
             </Row>
