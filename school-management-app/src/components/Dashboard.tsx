@@ -39,6 +39,13 @@ export class Dashboard extends Component<{}, MyState> {
     });
   }
 
+  componentDidUpdate() {
+    axios.get("http://localhost:8080/list").then((res) => {
+      const students = res.data;
+      this.setState({ students });
+    });
+  }
+
   toggle = ()=>{
     this.setState(prevState => ({isOpen : !prevState.isOpen}))
   }
